@@ -6,10 +6,18 @@
         {!! Form::label('Destajista:') !!}
         {!! Form::select('id_empleado',$destajistas,null,['class'=>'form-control']) !!}
     </div>
+
     <div class="form-group">
-        {!! Form::label('Lotes:') !!}
-        {!! Form::select('id_asigna',$lotes,null,['class'=>'form-control']) !!}
+        <div class="col-sm-6">
+            {!! Form::label('Prototipos:') !!}
+            {!! Form::select('prototipo',$prototipos,1,['class'=>'form-control','id'=>'prototipo']) !!}
+        </div>
+        <div class="col-sm-6">
+            {!! Form::label('Lotes:') !!}
+            {!! Form::select('id_lote',$lotes,null,['class'=>'form-control','id'=>'lote']) !!}
+        </div>
     </div>
+
     <div class="form-group">
             <div class="col-sm-6">
                 {!! Form::label('Fecha inicial') !!}

@@ -66,8 +66,8 @@ class IngresoControl extends Controller
         $avance = Avance::find($id);
         $filas = tablaDestajos::Filas($id);
         $arr = tablaDestajos::FilasArr($id);
-        $lote = Lote::find($avance->id_asigna);
-        $asigna = Asignacion::Prototipo($avance->id_asigna);
+        $lote = Lote::find($avance->id_lote);
+        $asigna = Asignacion::Prototipo($avance->id_lote);
         $destajos = Destajos::DestajosList($asigna->id_prototipo,$arr);
         $empleado = Empleado::find($avance->id_empleado);
         return view('Ingreso.create',compact('id','avance','lote','destajos','empleado','filas'));

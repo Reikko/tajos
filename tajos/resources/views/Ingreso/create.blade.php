@@ -33,9 +33,9 @@
                         <td width="200">
                             <div class="form-group">
                                 <div class="input-group">
-                                    {!! Form::number('porcentaje1',0,['class'=>'form-control','min'=>'0','max'=>'1']) !!}
+                                    {!! Form::number('porcentaje1',0,['class'=>'form-control','min'=>'0','max'=>'1','id'=>'p1']) !!}
                                     <span class="input-group-addon">.</span>
-                                    {!! Form::number('porcentaje2',0,['class'=>'form-control','min'=>'0','max'=>'9']) !!}
+                                    {!! Form::number('porcentaje2',0,['class'=>'form-control','min'=>'0','max'=>'9','id'=>'p2']) !!}
                                 </div>
                             </div>
                         </td>

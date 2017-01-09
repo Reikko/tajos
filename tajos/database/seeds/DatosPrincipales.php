@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use Destajos\Prototipo;
 use Destajos\Lote;
 use Destajos\Empleado;
+use Destajos\Asignacion;
+
 class DatosPrincipales extends Seeder
 {
     /**
@@ -30,9 +32,60 @@ class DatosPrincipales extends Seeder
         }
 
         $empleado = new Empleado;
-        $empleado->nombre = 'Jesus';
-        $empleado->ap_pat = '';
-        $empleado->ap_mat = '';
+        $empleado->nombre = 'Cristobal';
+        $empleado->ap_pat = 'Zavala';
+        $empleado->ap_mat = 'Cano';
         $empleado->save();
+
+        $asigna = new Asignacion;
+        $asigna->id_prototipo = 1;
+        $asigna->id_lote = 6;
+        $asigna->save();
+
+        $asigna = new Asignacion;
+        $asigna->id_prototipo = 1;
+        $asigna->id_lote = 9;
+        $asigna->save();
+
+        $asigna = new Asignacion;
+        $asigna->id_prototipo = 1;
+        $asigna->id_lote = 12;
+        $asigna->save();
+        //--------------------------------------------------
+
+        //-------Prototipo 2 -------------------------------
+        $asigna = new Asignacion;
+        $asigna->id_prototipo = 2;
+        $asigna->id_lote = 7;
+        $asigna->save();
+
+        $asigna = new Asignacion;
+        $asigna->id_prototipo = 2;
+        $asigna->id_lote = 10;
+        $asigna->save();
+
+        $asigna = new Asignacion;
+        $asigna->id_prototipo = 2;
+        $asigna->id_lote = 13;
+        $asigna->save();
+        //---------------------------------------------------
+
+        //-------Prototipo 4---------------------------------
+        $asigna = new Asignacion;
+        $asigna->id_prototipo = 4;
+        $asigna->id_lote = 8;
+        $asigna->save();
+
+        $asigna = new Asignacion;
+        $asigna->id_prototipo = 4;
+        $asigna->id_lote = 11;
+        $asigna->save();
+
+        $asigna = new Asignacion;
+        $asigna->id_prototipo = 4;
+        $asigna->id_lote = 14;
+        $asigna->save();
+
+
     }
 }

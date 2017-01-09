@@ -28,4 +28,23 @@ class tablaDestajos extends Model
             ->select('tabla_destajos.*', 'destajos.concepto', 'destajos.descripcion')
             ->lists('id_destajo');
     }
+
+    public static function FilasDeLotes($arr)
+    {
+        return DB::table('tabla_destajos')->whereIn('id_avance', $arr)
+            ->join('destajos', 'tabla_destajos.id_destajo', '=', 'destajos.id')
+            ->groupBy('id_destajo')
+            ->select('tabla_destajos.*', 'destajos.concepto', 'destajos.descripcion','destajos.destajo',DB::raw('SUM(porcentaje) as avance'))
+            ->get();
+    }
+
+    public static function Total($arr)
+    {
+        return DB::table('tabla_destajos')->whereIn('id_avance', $arr)
+            ->join('destajos', 'tabla_destajos.id_destajo', '=', 'destajos.id')
+            ->groupBy('id_destajo')
+            ->select('tabla_destajos.*', 'destajos.concepto', 'destajos.descripcion','destajos.destajo',DB::raw('SUM(porcentaje) as avance'))
+            ->select(DB::raw('SUM(porcentaje) as total'))
+            ->get();
+    }
 }

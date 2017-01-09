@@ -8,12 +8,22 @@
         <?php echo Form::select('id_empleado',$destajistas,null,['class'=>'form-control']); ?>
 
     </div>
+
     <div class="form-group">
-        <?php echo Form::label('Lotes:'); ?>
+        <div class="col-sm-6">
+            <?php echo Form::label('Prototipos:'); ?>
 
-        <?php echo Form::select('id_asigna',$lotes,null,['class'=>'form-control']); ?>
+            <?php echo Form::select('prototipo',$prototipos,1,['class'=>'form-control','id'=>'prototipo']); ?>
 
+        </div>
+        <div class="col-sm-6">
+            <?php echo Form::label('Lotes:'); ?>
+
+            <?php echo Form::select('id_lote',$lotes,null,['class'=>'form-control','id'=>'lote']); ?>
+
+        </div>
     </div>
+
     <div class="form-group">
             <div class="col-sm-6">
                 <?php echo Form::label('Fecha inicial'); ?>
