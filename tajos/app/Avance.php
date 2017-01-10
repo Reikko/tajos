@@ -14,10 +14,18 @@ class Avance extends Model
             'f_fin',
     ];
 
-    public static function LotesArr($id)                            //Devielve el arreglo de lotes para buscarlos
+    public static function LotesArr($id)                            //Devuelve el arreglo de lotes para buscarlos
     {
         return DB::table('avances')->where('id_lote', $id)
             ->lists('id');
+    }
+
+    public static function Avances($id)                            //Devuelve las filas que tengan el id
+    {
+        return DB::table('tabla_destajos')->where('id_avance', $id)
+            ->join('destajos', 'tabla_destajos.id_destajo', '=', 'destajos.id')
+            ->select('tabla_destajos.*', 'destajos.concepto', 'destajos.descripcion','destajos.destajo')
+            ->get();
     }
 
 }

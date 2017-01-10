@@ -47,7 +47,7 @@ class PrototipoControl extends Controller
     public function show($id)
     {
         $lotes = Asignacion::Lotes($id);
-        return view('Lotes.lote',compact('lotes'));
+        return view('Lotes.lote',compact('id','lotes'));
     }
 
     /**

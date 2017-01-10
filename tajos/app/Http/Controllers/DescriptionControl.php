@@ -2,15 +2,13 @@
 
 namespace Destajos\Http\Controllers;
 
-use Destajos\Asignacion;
-use Destajos\Avance;
-use Destajos\Lote;
-use Destajos\tablaDestajos;
+use Destajos\Destajos;
+use Destajos\Prototipo;
 use Illuminate\Http\Request;
 
 use Destajos\Http\Requests;
 
-class LotesControl extends Controller
+class DescriptionControl extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +17,7 @@ class LotesControl extends Controller
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -51,11 +49,9 @@ class LotesControl extends Controller
      */
     public function show($id)
     {
-        $filasArr = Avance::LotesArr($id);                                 //Consigue la lista de los id
-        $filas = tablaDestajos::FilasDeLotes($filasArr);                    //Devuelve la relacion entre
-        $lote = Lote::find($id);
-        $proto = Asignacion::Prototipo($lote->id);
-        return view('Avance.avanceLote',compact('id','lote','filas','proto'));
+        $destajos = Destajos::Destajos($id);
+        $prototipo = Prototipo::find($id);
+        return view('Descripciones.descripciones',compact('id','destajos','prototipo'));
     }
 
     /**

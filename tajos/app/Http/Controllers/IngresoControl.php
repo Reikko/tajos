@@ -21,7 +21,20 @@ class IngresoControl extends Controller
      */
     public function index()
     {
-        //
+        $arr = Avance::LotesArr(12);
+        $hola = tablaDestajos::MayorUnoArr($arr);
+
+        $nuevo = [];
+        foreach ($hola as $h)
+        {
+            //if($h->avance < 1)
+            //$arreglo = [$h];
+            //$nuevo
+        }
+
+
+
+        return $hola;
     }
 
     /**

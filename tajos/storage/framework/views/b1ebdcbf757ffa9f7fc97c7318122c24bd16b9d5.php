@@ -4,8 +4,11 @@
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h1>
-                    Lotes
+                    Prototipo <?php echo e($id); ?>
+
                     <?php echo e(link_to('prototipo','Regresar', ['class'=>'btn btn-primary'])); ?>
+
+                    <?php echo e(link_to('precios/'.$id,'Tabla Precios', ['class'=>'btn btn-primary'])); ?>
 
                 </h1>
             </div>
@@ -14,7 +17,7 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading"><?php echo e($fila->nombre); ?></div>
                         <div class="panel-body">
-                            <?php echo e(link_to('avance/'.$fila->id_lote,'Ver avance', ['class'=>'btn btn-primary'])); ?>
+                            <?php echo e(link_to('lote/'.$fila->id_lote,'Ver avance', ['class'=>'btn btn-primary'])); ?>
 
                         </div>
                     </div>

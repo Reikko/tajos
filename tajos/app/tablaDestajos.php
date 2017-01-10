@@ -38,13 +38,14 @@ class tablaDestajos extends Model
             ->get();
     }
 
-    public static function Total($arr)
+    public static function MayorUnoArr($arr)
     {
-        return DB::table('tabla_destajos')->whereIn('id_avance', $arr)
+         $res = DB::table('tabla_destajos')
+            ->whereIn('id_avance', $arr)
             ->join('destajos', 'tabla_destajos.id_destajo', '=', 'destajos.id')
+            ->select('destajos.id')
             ->groupBy('id_destajo')
-            ->select('tabla_destajos.*', 'destajos.concepto', 'destajos.descripcion','destajos.destajo',DB::raw('SUM(porcentaje) as avance'))
-            ->select(DB::raw('SUM(porcentaje) as total'))
-            ->get();
+            ->havingRaw('SUM(porcentaje) >= 1');
+            return $res->lists('id');
     }
 }

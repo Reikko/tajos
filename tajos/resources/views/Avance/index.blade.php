@@ -10,24 +10,22 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Prototipo</th>
-                            <th>Partida</th>
-                            <th>Concepto</th>
-                            <th>Descripcion</th>
-                            <th>Unidad</th>
-                            <th>Destajo</th>
+                            <th>Lote</th>
+                            <th>Empleado</th>
+                            <th>Fecha Inicial</th>
+                            <th>Fecha Final</th>
+                            <th>Opcion</th>
                         </tr>
                         </thead>
-                        @foreach($destajos as $num => $fila)
+                        @foreach($avances as $num => $fila)
                             <tbody>
                                 <tr class="success">
                                     <td>{{$num + 1}}</td>
-                                    <td>{{$fila->prototipo}}</td>
-                                    <td>{{$fila->partida}}</td>
-                                    <td>{{$fila->concepto}}</td>
-                                    <td>{{$fila->descripcion}}</td>
-                                    <td>{{$fila->unidad}}</td>
-                                    <td>$ {{$fila->destajo}}</td>
+                                    <td>{{$fila->id_lote}}</td>
+                                    <td>{{$fila->id_empleado}}</td>
+                                    <td>{{$fila->f_ini}}</td>
+                                    <td>{{$fila->f_fin}}</td>
+                                    <td>{{link_to('avance/'.$fila->id,'Ver', ['class'=>'btn btn-primary btn-block'])}}</td>
                                 </tr>
                             </tbody>
                         @endforeach

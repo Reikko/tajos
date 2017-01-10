@@ -9,24 +9,22 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Prototipo</th>
-                            <th>Partida</th>
-                            <th>Concepto</th>
-                            <th>Descripcion</th>
-                            <th>Unidad</th>
-                            <th>Destajo</th>
+                            <th>Lote</th>
+                            <th>Empleado</th>
+                            <th>Fecha Inicial</th>
+                            <th>Fecha Final</th>
+                            <th>Opcion</th>
                         </tr>
                         </thead>
-                        <?php foreach($destajos as $num => $fila): ?>
+                        <?php foreach($avances as $num => $fila): ?>
                             <tbody>
                                 <tr class="success">
                                     <td><?php echo e($num + 1); ?></td>
-                                    <td><?php echo e($fila->prototipo); ?></td>
-                                    <td><?php echo e($fila->partida); ?></td>
-                                    <td><?php echo e($fila->concepto); ?></td>
-                                    <td><?php echo e($fila->descripcion); ?></td>
-                                    <td><?php echo e($fila->unidad); ?></td>
-                                    <td>$ <?php echo e($fila->destajo); ?></td>
+                                    <td><?php echo e($fila->id_lote); ?></td>
+                                    <td><?php echo e($fila->id_empleado); ?></td>
+                                    <td><?php echo e($fila->f_ini); ?></td>
+                                    <td><?php echo e($fila->f_fin); ?></td>
+                                    <td><?php echo e(link_to('avance/'.$fila->id,'Ver', ['class'=>'btn btn-primary btn-block'])); ?></td>
                                 </tr>
                             </tbody>
                         <?php endforeach; ?>

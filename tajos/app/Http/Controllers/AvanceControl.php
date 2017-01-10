@@ -23,8 +23,8 @@ class AvanceControl extends Controller
      */
     public function index()
     {
-        $destajos = Destajos::all();
-        return view ('Avance.index',compact('destajos'));
+        $avances = Avance::all();
+        return view('Avance.index',compact('avances'));
     }
 
     public function cambiaPrototipo(Request $request,$id)
@@ -69,14 +69,15 @@ class AvanceControl extends Controller
         return redirect('ingreso/'.$avance->id);
     }
 
-    //Muestra informacion del avance por id del lote
+    //Muestra informacion del avance buscado por id
     public function show($id)
     {
-        $filasArr = Avance::LotesArr($id);                                 //Consigue la lista de los id
-        $filas = tablaDestajos::FilasDeLotes($filasArr);                    //Devuelve la relacion entre
-        $lote = Lote::find($id);
+        $avance = Avance::find($id);
+        $filas = Avance::Avances($id);
+        $lote = Lote::find($avance->id_lote);
         $proto = Asignacion::Prototipo($lote->id);
-        return view('Avance.avanceSemanal',compact('id','lote','filas','proto'));
+
+        return view('Avance.avanceLote',compact('id','lote','filas','proto'));
     }
 
     /**
