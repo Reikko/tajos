@@ -41,10 +41,13 @@
                                     {{$fila->porcentaje}}
                                 </td>
                                 <td>
-                                    {{$fila->destajo}}
+                                    ${{$fila->destajo}}
                                 </td>
                                 <td>
-                                    {{$fila->destajo*$fila->porcentaje}}
+                                    ${{$fila->destajo*$fila->porcentaje}}
+                                    <?php
+                                    $subtotal += $fila->destajo*$fila->porcentaje;
+                                    ?>
                                 </td>
                             </tr>
 

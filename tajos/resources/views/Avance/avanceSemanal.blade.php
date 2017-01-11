@@ -5,8 +5,9 @@
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h1>{{$lote->nombre}}
-                    {{link_to('prototipo/'.$proto->id_prototipo,'Regresar', ['class'=>'btn btn-primary'])}}
+                    {{link_to('avance/','Regresar', ['class'=>'btn btn-primary'])}}
                 </h1>
+                <h4>{{$avance[0]->nombre}} {{$avance[0]->ap_pat}}</h4>
             </div>
             <div class="panel-body">
                 {!! Form::open(['route'=>'ingreso.store','method'=>'POST']) !!}
@@ -26,7 +27,7 @@
                         $subtotal = 0;
                     ?>
                     @foreach($filas as $fila)
-                        @if($fila->avance == 1)
+                        @if($fila->porcentaje == 1)
                             <tr class="success">
                         @else
                             <tr>
@@ -41,15 +42,15 @@
                                 {{$fila->descripcion}}
                             </td>
                             <td>
-                                {{$fila->avance}}
+                                {{$fila->porcentaje}}
                             </td>
                             <td>
                                 ${{$fila->destajo}}
                             </td>
                             <td>
-                                ${{ $fila->destajo*$fila->avance}}
+                                ${{ $fila->destajo*$fila->porcentaje}}
                                 <?php
-                                    $subtotal += $fila->destajo*$fila->avance;
+                                    $subtotal += $fila->destajo*$fila->porcentaje;
                                 ?>
                             </td>
                         </tr>

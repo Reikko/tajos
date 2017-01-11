@@ -5,9 +5,10 @@
             <div class="panel-heading">
                 <h1><?php echo e($lote->nombre); ?>
 
-                    <?php echo e(link_to('prototipo/'.$proto->id_prototipo,'Regresar', ['class'=>'btn btn-primary'])); ?>
+                    <?php echo e(link_to('avance/','Regresar', ['class'=>'btn btn-primary'])); ?>
 
                 </h1>
+                <h4><?php echo e($avance[0]->nombre); ?> <?php echo e($avance[0]->ap_pat); ?></h4>
             </div>
             <div class="panel-body">
                 <?php echo Form::open(['route'=>'ingreso.store','method'=>'POST']); ?>
@@ -29,7 +30,7 @@
                         $subtotal = 0;
                     ?>
                     <?php foreach($filas as $fila): ?>
-                        <?php if($fila->avance == 1): ?>
+                        <?php if($fila->porcentaje == 1): ?>
                             <tr class="success">
                         <?php else: ?>
                             <tr>
@@ -47,7 +48,7 @@
 
                             </td>
                             <td>
-                                <?php echo e($fila->avance); ?>
+                                <?php echo e($fila->porcentaje); ?>
 
                             </td>
                             <td>
@@ -55,10 +56,10 @@
 
                             </td>
                             <td>
-                                $<?php echo e($fila->destajo*$fila->avance); ?>
+                                $<?php echo e($fila->destajo*$fila->porcentaje); ?>
 
                                 <?php
-                                    $subtotal += $fila->destajo*$fila->avance;
+                                    $subtotal += $fila->destajo*$fila->porcentaje;
                                 ?>
                             </td>
                         </tr>

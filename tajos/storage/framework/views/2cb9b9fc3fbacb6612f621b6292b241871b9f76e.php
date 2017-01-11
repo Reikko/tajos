@@ -48,12 +48,15 @@
 
                                 </td>
                                 <td>
-                                    <?php echo e($fila->destajo); ?>
+                                    $<?php echo e($fila->destajo); ?>
 
                                 </td>
                                 <td>
-                                    <?php echo e($fila->destajo*$fila->porcentaje); ?>
+                                    $<?php echo e($fila->destajo*$fila->porcentaje); ?>
 
+                                    <?php
+                                    $subtotal += $fila->destajo*$fila->porcentaje;
+                                    ?>
                                 </td>
                             </tr>
 
